@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsxcpatk2g0fd"]
+[gd_scene load_steps=14 format=3 uid="uid://dsxcpatk2g0fd"]
 
 [ext_resource type="Texture2D" uid="uid://bua68stn7jfxv" path="res://assets/sprites/peter-porker/idle/idle1.png" id="1_6eyey"]
 [ext_resource type="Texture2D" uid="uid://41ra1uorwge4" path="res://assets/sprites/peter-porker/idle/idle2.png" id="2_d3wef"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bl73ti6gc45qw" path="res://assets/sprites/peter-porker/walking/walking4.png" id="8_jfpux"]
 [ext_resource type="Texture2D" uid="uid://30ex70ql7p5g" path="res://assets/sprites/peter-porker/walking/walking5.png" id="9_61ith"]
 [ext_resource type="Texture2D" uid="uid://dnn1uwfrwsgvm" path="res://assets/sprites/peter-porker/walking/walking6.png" id="10_ebwui"]
+[ext_resource type="Script" uid="uid://bp1w6xdyaaufu" path="res://scripts/Player.gd" id="11_d3wef"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sfy4j"]
 animations = [{
@@ -59,13 +60,15 @@ size = Vector2(10, 20)
 
 [node name="Peter-Porker" type="Node2D"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("11_d3wef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_sfy4j")
 animation = &"walk"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D"]
-visible = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-3, -3)
 shape = SubResource("RectangleShape2D_gv3ic")
