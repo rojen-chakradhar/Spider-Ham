@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dnn1uwfrwsgvm" path="res://assets/sprites/peter-porker/walking/walking6.png" id="10_ebwui"]
 [ext_resource type="Script" uid="uid://bp1w6xdyaaufu" path="res://scripts/Player.gd" id="11_d3wef"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_sfy4j"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_d3wef"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -29,7 +29,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -55,20 +55,18 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gv3ic"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4126"]
 size = Vector2(10, 20)
 
-[node name="Peter-Porker" type="Node2D"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("11_d3wef")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-sprite_frames = SubResource("SpriteFrames_sfy4j")
+sprite_frames = SubResource("SpriteFrames_d3wef")
 animation = &"walk"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -3)
-shape = SubResource("RectangleShape2D_gv3ic")
+shape = SubResource("RectangleShape2D_o4126")
