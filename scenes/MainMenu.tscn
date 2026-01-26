@@ -1,21 +1,8 @@
 [gd_scene load_steps=11 format=3 uid="uid://xi130hfbgc3n"]
 
+[ext_resource type="Script" uid="uid://dypnqqooen85i" path="res://scripts/MainMenu.gd" id="1_2wh52"]
 [ext_resource type="FontFile" uid="uid://c4refhlniplrv" path="res://assets/fonts/Boxy-Bold-Font/Boxy-Bold.ttf" id="1_yqorp"]
 [ext_resource type="Texture2D" uid="uid://bbk4dhq55suk6" path="res://assets/gui/buttons free.png" id="2_0ykhv"]
-
-[sub_resource type="GDScript" id="GDScript_0ykhv"]
-script/source = "extends Control
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2wh52"]
 texture = ExtResource("2_0ykhv")
@@ -48,7 +35,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = SubResource("GDScript_0ykhv")
+script = ExtResource("1_2wh52")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -76,7 +63,7 @@ vertical_alignment = 1
 uppercase = true
 metadata/_edit_use_anchors_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -91,7 +78,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Buttons"]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -103,7 +90,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_ow34m")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0ykhv")
 text = "Play"
 
-[node name="SettingButton" type="Button" parent="VBoxContainer"]
+[node name="ControlsButton" type="Button" parent="Buttons"]
 texture_filter = 1
 layout_mode = 2
 size_flags_vertical = 3
@@ -113,4 +100,20 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_2wh52")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_l72w3")
 theme_override_styles/hover = SubResource("StyleBoxTexture_826wr")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ucygd")
-text = "Setting"
+text = "Controls"
+
+[node name="QuitButton" type="Button" parent="Buttons"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2wh52")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l72w3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_826wr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucygd")
+text = "Quit"
+
+[connection signal="pressed" from="Buttons/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="Buttons/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
