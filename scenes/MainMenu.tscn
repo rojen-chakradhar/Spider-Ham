@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://xi130hfbgc3n"]
+[gd_scene load_steps=12 format=3 uid="uid://xi130hfbgc3n"]
 
 [ext_resource type="Script" uid="uid://dypnqqooen85i" path="res://scripts/MainMenu.gd" id="1_2wh52"]
 [ext_resource type="FontFile" uid="uid://c4refhlniplrv" path="res://assets/fonts/Boxy-Bold-Font/Boxy-Bold.ttf" id="1_yqorp"]
 [ext_resource type="Texture2D" uid="uid://bbk4dhq55suk6" path="res://assets/gui/buttons free.png" id="2_0ykhv"]
+[ext_resource type="Texture2D" uid="uid://calcs8tsoaqx1" path="res://assets/backgrounds/menu-bg.png" id="2_ow34m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2wh52"]
 texture = ExtResource("2_0ykhv")
@@ -37,31 +38,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2wh52")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.4862745, 0.3647059, 1, 1)
-
-[node name="Title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.27083334
-anchor_top = 0.19753087
-anchor_right = 0.7395833
-anchor_bottom = 0.30864197
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.9098039, 0.02745098, 0.02745098, 1)
-theme_override_fonts/font = ExtResource("1_yqorp")
-theme_override_font_sizes/font_size = 64
-text = "spider-ham"
-horizontal_alignment = 1
-vertical_alignment = 1
-uppercase = true
-metadata/_edit_use_anchors_ = true
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 328)
+texture = ExtResource("2_ow34m")
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1

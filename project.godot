@@ -13,6 +13,9 @@ config_version=5
 config/name="Spider-Ham"
 run/main_scene="uid://d1ffyssahm14r"
 config/features=PackedStringArray("4.5", "Forward Plus")
+boot_splash/bg_color=Color(0.9607843, 0.9254902, 0.07450981, 1)
+boot_splash/fullsize=false
+boot_splash/image="uid://cy5dxmtijc6xs"
 config/icon="res://icon.svg"
 
 [audio]
