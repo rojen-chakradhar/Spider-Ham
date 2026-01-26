@@ -1,37 +1,78 @@
-[gd_scene load_steps=2 format=3 uid="uid://cofecsfyxw41i"]
+[gd_scene load_steps=12 format=3 uid="uid://cofecsfyxw41i"]
 
-[ext_resource type="FontFile" uid="uid://c4refhlniplrv" path="res://assets/fonts/Boxy-Bold-Font/Boxy-Bold.ttf" id="1_i2gav"]
+[ext_resource type="Texture2D" uid="uid://b43tcvborgh0t" path="res://assets/backgrounds/Options-bg.png" id="1_a6ov4"]
+[ext_resource type="Script" uid="uid://6g7t3mfdbgpb" path="res://scripts/controls.gd" id="1_lqn12"]
+[ext_resource type="FontFile" uid="uid://c4refhlniplrv" path="res://assets/fonts/Boxy-Bold-Font/Boxy-Bold.ttf" id="2_hvbup"]
+[ext_resource type="Texture2D" uid="uid://c1m2ypyd0hetj" path="res://assets/Base-01.png" id="3_hvbup"]
+[ext_resource type="Texture2D" uid="uid://bbk4dhq55suk6" path="res://assets/gui/buttons free.png" id="4_6qa8m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqn12"]
+texture = ExtResource("4_6qa8m")
+region_rect = Rect2(3, 66, 42, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_po4s7"]
+texture = ExtResource("4_6qa8m")
+region_rect = Rect2(51, 68, 42, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lspxa"]
+texture = ExtResource("4_6qa8m")
+region_rect = Rect2(51, 68, 42, 26)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7yf0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qa8m"]
+texture = ExtResource("3_hvbup")
+region_rect = Rect2(16, 272, 48, 16)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqn12"]
 
 [node name="Control" type="Control"]
+texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lqn12")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.4745098, 0.3647059, 0.50980395, 1)
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(576, 328)
+texture = ExtResource("1_a6ov4")
+
+[node name="Button" type="Button" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = 64.0
+offset_top = 64.0
+offset_right = 164.0
+offset_bottom = 94.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_hvbup")
+theme_override_styles/normal = SubResource("StyleBoxTexture_lqn12")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_po4s7")
+theme_override_styles/hover = SubResource("StyleBoxTexture_lspxa")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w7yf0")
+text = "Back"
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -51.0
-offset_top = -11.5
-offset_right = 51.0
-offset_bottom = 11.5
+anchors_preset = -1
+anchor_left = 0.36805555
+anchor_top = 0.20987654
+anchor_right = 0.6284722
+anchor_bottom = 0.33333334
 grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_i2gav")
+theme_override_fonts/font = ExtResource("2_hvbup")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_6qa8m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_lqn12")
 text = "Controls"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
