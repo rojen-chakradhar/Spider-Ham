@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://xi130hfbgc3n"]
+
+[ext_resource type="FontFile" uid="uid://c4refhlniplrv" path="res://assets/fonts/Boxy-Bold-Font/Boxy-Bold.ttf" id="1_yqorp"]
+[ext_resource type="Texture2D" uid="uid://bbk4dhq55suk6" path="res://assets/gui/buttons free.png" id="2_0ykhv"]
+
+[sub_resource type="GDScript" id="GDScript_0ykhv"]
+script/source = "extends Control
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2wh52"]
+texture = ExtResource("2_0ykhv")
+region_rect = Rect2(3, 66, 42, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ykhv"]
+texture = ExtResource("2_0ykhv")
+region_rect = Rect2(51, 68, 42, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ow34m"]
+texture = ExtResource("2_0ykhv")
+region_rect = Rect2(51, 68, 42, 26)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ykhv"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l72w3"]
+texture = ExtResource("2_0ykhv")
+region_rect = Rect2(51, 68, 42, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_826wr"]
+texture = ExtResource("2_0ykhv")
+region_rect = Rect2(51, 68, 42, 26)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ucygd"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_0ykhv")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4862745, 0.3647059, 1, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.27083334
+anchor_top = 0.19753087
+anchor_right = 0.7395833
+anchor_bottom = 0.30864197
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.9098039, 0.02745098, 0.02745098, 1)
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_font_sizes/font_size = 64
+text = "spider-ham"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -50.0
+offset_right = 75.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2wh52")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ykhv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ow34m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0ykhv")
+text = "Play"
+
+[node name="SettingButton" type="Button" parent="VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_yqorp")
+theme_override_styles/normal = SubResource("StyleBoxTexture_2wh52")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l72w3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_826wr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ucygd")
+text = "Setting"
