@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dsxcpatk2g0fd"]
+[gd_scene load_steps=19 format=3 uid="uid://dsxcpatk2g0fd"]
 
 [ext_resource type="Texture2D" uid="uid://bua68stn7jfxv" path="res://assets/sprites/peter-porker/idle/idle1.png" id="1_6eyey"]
 [ext_resource type="Texture2D" uid="uid://41ra1uorwge4" path="res://assets/sprites/peter-porker/idle/idle2.png" id="2_d3wef"]
@@ -6,10 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://bgf6q4ffkamra" path="res://assets/sprites/peter-porker/idle/idle4.png" id="4_lkdrv"]
 [ext_resource type="Texture2D" uid="uid://8d1gctdlalcp" path="res://assets/sprites/peter-porker/walking/walking1.png" id="5_p7iby"]
 [ext_resource type="Texture2D" uid="uid://3kvpi3rpvdam" path="res://assets/sprites/peter-porker/walking/walking2.png" id="6_0rnld"]
+[ext_resource type="Texture2D" uid="uid://blfc7i6mqew5n" path="res://assets/sprites/peter-porker/jump/jump1.png" id="6_srp4u"]
+[ext_resource type="Texture2D" uid="uid://g4xxsja6ysen" path="res://assets/sprites/peter-porker/jump/jump2.png" id="7_jfpux"]
 [ext_resource type="Texture2D" uid="uid://bdr00swyb4gq" path="res://assets/sprites/peter-porker/walking/walking3.png" id="7_srp4u"]
+[ext_resource type="Texture2D" uid="uid://ptjq8r7o0ddc" path="res://assets/sprites/peter-porker/jump/jump3.png" id="8_61ith"]
 [ext_resource type="Texture2D" uid="uid://bl73ti6gc45qw" path="res://assets/sprites/peter-porker/walking/walking4.png" id="8_jfpux"]
 [ext_resource type="Texture2D" uid="uid://30ex70ql7p5g" path="res://assets/sprites/peter-porker/walking/walking5.png" id="9_61ith"]
+[ext_resource type="Texture2D" uid="uid://yjfjt2ocxjqu" path="res://assets/sprites/peter-porker/jump/jump4.png" id="9_ebwui"]
 [ext_resource type="Texture2D" uid="uid://dnn1uwfrwsgvm" path="res://assets/sprites/peter-porker/walking/walking6.png" id="10_ebwui"]
+[ext_resource type="Texture2D" uid="uid://bieq4r7dob2um" path="res://assets/sprites/peter-porker/jump/jump5.png" id="10_sfy4j"]
 [ext_resource type="Script" uid="uid://bp1w6xdyaaufu" path="res://scripts/Player.gd" id="11_d3wef"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d3wef"]
@@ -29,6 +34,26 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_srp4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jfpux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_61ith")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ebwui")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sfy4j")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 8.0
 }, {
 "frames": [{
@@ -64,8 +89,9 @@ script = ExtResource("11_d3wef")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_d3wef")
-animation = &"walk"
+animation = &"jump"
 autoplay = "idle"
+frame_progress = 0.34037545
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -3)
