@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dypnqqooen85i" path="res://scripts/MainMenu.gd" id="1_2wh52"]
 [ext_resource type="FontFile" uid="uid://c4refhlniplrv" path="res://assets/fonts/Boxy-Bold-Font/Boxy-Bold.ttf" id="1_yqorp"]
 [ext_resource type="Texture2D" uid="uid://bbk4dhq55suk6" path="res://assets/gui/buttons free.png" id="2_0ykhv"]
-[ext_resource type="Texture2D" uid="uid://calcs8tsoaqx1" path="res://assets/backgrounds/menu-bg.png" id="2_ow34m"]
+[ext_resource type="Texture2D" uid="uid://85msn60vpu3j" path="res://assets/backgrounds/menu-bg.png" id="2_ow34m"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2wh52"]
 texture = ExtResource("2_0ykhv")
@@ -40,8 +40,8 @@ script = ExtResource("1_2wh52")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(576, 328)
 texture = ExtResource("2_ow34m")
+centered = false
 
 [node name="Buttons" type="VBoxContainer" parent="."]
 layout_mode = 1
