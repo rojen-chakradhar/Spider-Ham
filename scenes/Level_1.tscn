@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://d1ffyssahm14r"]
+[gd_scene load_steps=28 format=4 uid="uid://d1ffyssahm14r"]
 
 [ext_resource type="Texture2D" uid="uid://cexnula5kwx66" path="res://assets/backgrounds/background_layer_1.png" id="1_1tdkx"]
 [ext_resource type="PackedScene" uid="uid://dsxcpatk2g0fd" path="res://scenes/Player.tscn" id="1_5f7sk"]
@@ -8,6 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://cdj8kiy7c5v4b" path="res://assets/deccorations/lamp.png" id="4_d6w1m"]
 [ext_resource type="Texture2D" uid="uid://dknqujxs5nliv" path="res://assets/deccorations/shop_anim.png" id="6_bmqp6"]
 [ext_resource type="Texture2D" uid="uid://dm7kqqsevsnin" path="res://assets/deccorations/sign.png" id="6_kjrqm"]
+[ext_resource type="Texture2D" uid="uid://dddjtloa4gbwc" path="res://assets/gui/normal-pause.png" id="10_a4osw"]
+[ext_resource type="Texture2D" uid="uid://ft84txky4oas" path="res://assets/gui/pressed-pause.png" id="11_l52ph"]
+[ext_resource type="Texture2D" uid="uid://dx1cacdqsa6y6" path="res://assets/gui/hover-pause.png" id="12_5viah"]
+[ext_resource type="Texture2D" uid="uid://beuxdx4hyki35" path="res://assets/sprites/hammar.png" id="12_a4osw"]
+[ext_resource type="Texture2D" uid="uid://rfvaq3wqbni5" path="res://assets/sprites/head.png" id="13_l52ph"]
+[ext_resource type="Texture2D" uid="uid://dj8kt28tgt4mv" path="res://assets/sprites/pie.png" id="14_5viah"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fxqaj"]
 texture = ExtResource("1_1tdkx")
@@ -625,7 +631,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wknwv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f63rn"]
 texture = ExtResource("2_1tdkx")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1434,7 +1440,7 @@ texture = ExtResource("2_1tdkx")
 
 [sub_resource type="TileSet" id="TileSet_fxqaj"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_wknwv")
+sources/0 = SubResource("TileSetAtlasSource_f63rn")
 
 [node name="Level1" type="Node2D"]
 
@@ -1477,4 +1483,66 @@ position = Vector2(-35, 9)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(80, -30)
-zoom = Vector2(3, 3)
+zoom = Vector2(1.5, 1.5)
+
+[node name="UI" type="Control" parent="Player/Camera2D"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = -213.0
+offset_top = -120.0
+offset_right = 213.0
+offset_bottom = 120.0
+mouse_filter = 2
+
+[node name="TextureButton" type="TextureButton" parent="Player/Camera2D/UI"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -16.0
+offset_top = 6.0
+offset_bottom = 22.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("10_a4osw")
+texture_pressed = ExtResource("11_l52ph")
+texture_hover = ExtResource("12_5viah")
+
+[node name="Node2D" type="Node2D" parent="Player/Camera2D/UI"]
+texture_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/UI/Node2D"]
+position = Vector2(32, 16)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("12_a4osw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D/UI/Node2D/Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_l52ph")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player/Camera2D/UI/Node2D/Sprite2D"]
+position = Vector2(9, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_l52ph")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Player/Camera2D/UI/Node2D/Sprite2D"]
+position = Vector2(18, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("13_l52ph")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player/Camera2D/UI/Node2D"]
+position = Vector2(18, 34)
+scale = Vector2(1, 0.946)
+texture = ExtResource("14_5viah")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Player/Camera2D/UI/Node2D"]
+position = Vector2(36, 34)
+scale = Vector2(1, 0.946)
+texture = ExtResource("14_5viah")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Player/Camera2D/UI/Node2D"]
+position = Vector2(54, 34)
+scale = Vector2(1, 0.946)
+texture = ExtResource("14_5viah")

@@ -1,28 +1,27 @@
-[gd_scene load_steps=12 format=3 uid="uid://cofecsfyxw41i"]
+[gd_scene load_steps=14 format=3 uid="uid://cofecsfyxw41i"]
 
 [ext_resource type="Texture2D" uid="uid://b43tcvborgh0t" path="res://assets/backgrounds/Options-bg.png" id="1_a6ov4"]
 [ext_resource type="Script" uid="uid://6g7t3mfdbgpb" path="res://scripts/controls.gd" id="1_lqn12"]
 [ext_resource type="FontFile" uid="uid://c4refhlniplrv" path="res://assets/fonts/Boxy-Bold-Font/Boxy-Bold.ttf" id="2_hvbup"]
-[ext_resource type="Texture2D" uid="uid://c1m2ypyd0hetj" path="res://assets/Base-01.png" id="3_hvbup"]
 [ext_resource type="Texture2D" uid="uid://bbk4dhq55suk6" path="res://assets/gui/buttons free.png" id="4_6qa8m"]
+[ext_resource type="Texture2D" uid="uid://c8aenw6m6stfd" path="res://assets/gui/normal-cross.png" id="4_lspxa"]
+[ext_resource type="Texture2D" uid="uid://7jjr217b620t" path="res://assets/gui/pressed-cross.png" id="5_w7yf0"]
+[ext_resource type="Texture2D" uid="uid://bdtxuypopbaj2" path="res://assets/gui/hover-cross.png" id="6_gulgq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lqn12"]
-texture = ExtResource("4_6qa8m")
-region_rect = Rect2(3, 66, 42, 28)
+texture = ExtResource("4_lspxa")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_po4s7"]
-texture = ExtResource("4_6qa8m")
-region_rect = Rect2(51, 68, 42, 26)
+texture = ExtResource("5_w7yf0")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lspxa"]
-texture = ExtResource("4_6qa8m")
-region_rect = Rect2(51, 68, 42, 26)
+texture = ExtResource("6_gulgq")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w7yf0"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6qa8m"]
-texture = ExtResource("3_hvbup")
-region_rect = Rect2(16, 272, 48, 16)
+texture = ExtResource("4_6qa8m")
+region_rect = Rect2(51, 4, 42, 26)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lqn12"]
 
@@ -38,32 +37,37 @@ script = ExtResource("1_lqn12")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
+scale = Vector2(0.5555555, 0.5555555)
 texture = ExtResource("1_a6ov4")
 centered = false
 
 [node name="Button" type="Button" parent="."]
 texture_filter = 1
-layout_mode = 0
-offset_left = 64.0
-offset_top = 64.0
-offset_right = 164.0
-offset_bottom = 94.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.028
+anchor_top = 0.049000002
+anchor_right = 0.056
+anchor_bottom = 0.09900001
+offset_left = -0.25600052
+offset_top = 0.24799919
+offset_right = -0.51200104
+offset_bottom = -0.15200806
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_hvbup")
 theme_override_styles/normal = SubResource("StyleBoxTexture_lqn12")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_po4s7")
 theme_override_styles/hover = SubResource("StyleBoxTexture_lspxa")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_w7yf0")
-text = "Back"
 
 [node name="Label" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.36805555
-anchor_top = 0.20987654
-anchor_right = 0.6284722
-anchor_bottom = 0.33333334
+anchor_left = 0.375
+anchor_top = 0.09876543
+anchor_right = 0.6354167
+anchor_bottom = 0.22222222
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("2_hvbup")
 theme_override_font_sizes/font_size = 32
@@ -73,6 +77,5 @@ text = "Controls"
 horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
-metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
