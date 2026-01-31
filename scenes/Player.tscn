@@ -103,7 +103,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_d3wef")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.8929404
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -3)

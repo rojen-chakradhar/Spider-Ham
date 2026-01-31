@@ -75,19 +75,6 @@ func _physics_process(delta) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if horizontal_input < 0:
-		animated_sprite_2d.flip_h = true
-	if horizontal_input > 0:
-		animated_sprite_2d.flip_h = false
-		
-	if is_on_floor():
-		if horizontal_input == 0:
-			animated_sprite_2d.play("idle")
-		else:
-			animated_sprite_2d.play("walk")
-	else:
-			animated_sprite_2d.play("jump")
-
 	# Apply velocity
 	move_and_slide()
 
